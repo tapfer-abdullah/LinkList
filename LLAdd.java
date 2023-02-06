@@ -1,18 +1,18 @@
 
-public class LLAdd {
+public class LLAdd <T>{//T used for generic data type / you can create any type of Link List
     Node head;
 
     class Node{
-        String data; 
+        T data; 
         Node next;
-        Node(String data){
+        Node(T data){
             this.data = data;
             this.next = null;
         }
     }
 
     //Add item at first position 
-    void addFirst(String data){
+    void addFirst(T data){
         Node newNode = new Node(data);
         //Checking if the link list is empty or not
         if(head == null){
@@ -25,7 +25,7 @@ public class LLAdd {
     }
 
     //Add item at last the end of the link list
-    void addLast(String data){
+    void addLast(T data){
         Node newNode = new Node(data);
         if(head == null){
             head = newNode;
@@ -53,19 +53,27 @@ public class LLAdd {
             currNode = currNode.next;
         }
 
-        System.out.println("Null");
+        // System.out.println("Null");
+        System.out.println("");
     }
 
 
     //main 
     public static void main(String[] args) {
-        LLAdd list = new LLAdd();
+        LLAdd<String> list = new LLAdd<>();
         list.addFirst("bk");
         list.addFirst("ak");
         list.printList();
 
         list.addLast("ck");
         list.printList();
+
+        LLAdd<Integer> inList = new LLAdd<>();
+        inList.addLast(5);
+        inList.addLast(6);
+        inList.addLast(7);
+        inList.printList();
+        
 
         
     }
